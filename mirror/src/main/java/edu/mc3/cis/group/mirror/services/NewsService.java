@@ -6,16 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+
+//labels the class as an interface that stands alone in the model with no encapsulation
 @Service
 public class NewsService {
-
-    private String helloWorld = "Hello, ";
 
     @Autowired
     NewsConfig config;
 
     public String getHello()
     {
+        String helloWorld = "Hello, ";
         return helloWorld + config.getExampleName();
     }
 

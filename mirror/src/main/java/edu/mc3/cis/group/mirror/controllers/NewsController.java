@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+//RestControllerAnnotation is the Annotation to indicate that this controller will be performing RESTful web services.
+//RequestMapping requests the mapping of the web request in this controller that we used
 @RestController
 @RequestMapping("news")
 public class NewsController{
+
 
     @Autowired
     private NewsService service;
