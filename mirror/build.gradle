@@ -9,12 +9,11 @@ version = '0.0.1-SNAPSHOT'
 
 repositories {
 	mavenCentral()
-	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
+	implementation 'org.json:json:20180813'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

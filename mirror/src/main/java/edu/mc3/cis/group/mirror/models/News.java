@@ -1,25 +1,25 @@
 package edu.mc3.cis.group.mirror.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kwabenaberko.newsapilib.models.Article;
-import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 
 import java.util.Date;
 import java.util.List;
 
-public class News extends ArticleResponse {
-
-
-    public News()
-    {
-        super();
-    }
-    @JsonProperty("Status")
+public class News  {
     public String status;
-    @JsonProperty("TotalResults")
     public int totalResults;
-    @JsonProperty("Articles")
-    public List<Article> articles;
+    public List<Result> results;
+    public int nextPage;
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "status='" + status + '\'' +
+                ", \ntotalResults=" + totalResults +
+                ", \nresults=" + results +
+                ", \nnextPage=" + nextPage +
+                '}';
+    }
 }
 
 
