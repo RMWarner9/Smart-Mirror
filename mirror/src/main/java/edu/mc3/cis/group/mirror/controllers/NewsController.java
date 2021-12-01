@@ -1,13 +1,15 @@
 package edu.mc3.cis.group.mirror.controllers;
 
 import edu.mc3.cis.group.mirror.models.ExampleResult;
+import edu.mc3.cis.group.mirror.models.News;
 import edu.mc3.cis.group.mirror.services.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("news")
@@ -29,5 +31,11 @@ public class NewsController{
     )
     {
         return service.getResult(x,y);
+    }
+
+    @GetMapping(path = "/articles", produces = "application/json")
+    public News getNews() throws IOException {
+
+        return service.getNews();
     }
 }
