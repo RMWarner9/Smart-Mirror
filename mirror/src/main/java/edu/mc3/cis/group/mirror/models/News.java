@@ -6,7 +6,9 @@ import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+* Let's get roight into the news!!
+*/
 public class News extends ArticleResponse {
 
 
