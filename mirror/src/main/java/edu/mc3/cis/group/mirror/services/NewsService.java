@@ -32,7 +32,7 @@ public class NewsService {
         try{
 
             ObjectMapper om = new ObjectMapper();
-            news = om.readValue(new URL("https://newsdata.io/api/1/news?apikey=pub_2516ec7af3617bbefa1f732b3be5504e5d3e"), News.class);
+            news = om.readValue(new URL("https://newsdata.io/api/1/news?apikey=pub_2516ec7af3617bbefa1f732b3be5504e5d3e&language=en"), News.class);
 
             System.out.println(news);
             return news;
