@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.List;
 /**
 * Let's get roight into the news!!
+ * For our first story, Matt has announced that he's going to start commenting
+ * on the file ASAP
 */
 public class News extends ArticleResponse {
 
