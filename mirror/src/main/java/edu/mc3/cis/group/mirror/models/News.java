@@ -1,35 +1,9 @@
 package edu.mc3.cis.group.mirror.models;
 
-<<<<<<< Updated upstream
 import com.fasterxml.jackson.annotation.JsonProperty;
-=======
->>>>>>> Stashed changes
 
 import java.util.Date;
 import java.util.List;
-
-<<<<<<< Updated upstream
-public class News  {
-    public String status;
-    public int totalResults;
-    public List<Result> results;
-    public int nextPage;
-
-    @Override
-    public String toString() {
-        return "News{" +
-                "status='" + status + '\'' +
-                ", \ntotalResults=" + totalResults +
-                ", \nresults=" + results +
-                ", \nnextPage=" + nextPage +
-                '}';
-    }
-}
-
-
-
-=======
-
 
 public class News {// import com.fasterxml.jackson.databind.ObjectMapper; // version 2.11.1
     // import com.fasterxml.jackson.annotation.JsonProperty; // version 2.11.1
@@ -59,4 +33,3 @@ Root root = om.readValue(myJsonString), Root.class); */
 
 
 }
->>>>>>> Stashed changes
