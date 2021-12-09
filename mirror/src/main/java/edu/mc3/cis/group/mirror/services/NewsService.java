@@ -6,6 +6,11 @@ import edu.mc3.cis.group.mirror.models.ExampleResult;
 import edu.mc3.cis.group.mirror.models.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.File;
+import java.io.IOException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +49,14 @@ public class NewsService {
         }
 
         return news;
+    }
+
+    public News getArticles() throws IOException {
+        ObjectMapper om = new ObjectMapper();
+        News.NewsRoot root = om.readValue(new File("news-json.json"), News.NewsRoot.class);
+        System.out.println(root);
+
+        return new News();
     }
 }
 
