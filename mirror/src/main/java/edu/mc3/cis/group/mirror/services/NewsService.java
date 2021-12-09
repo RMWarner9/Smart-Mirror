@@ -51,12 +51,5 @@ public class NewsService {
         return news;
     }
 
-    public News getArticles() throws IOException {
-        ObjectMapper om = new ObjectMapper();
-        News.NewsRoot root = om.readValue(new File("news-json.json"), News.NewsRoot.class);
-        System.out.println(root);
-
-        return new News();
-    }
 }
 
