@@ -33,7 +33,13 @@ public class WeatherObject {
 
     public double getCurrentTemp()
     {
-        return current.temp;
+        double Ftemp;
+        double Ctemp;
+        double Ktemp;
+        Ktemp = current.temp;
+        Ctemp = Ktemp + 273.15;
+        Ftemp = ( (Ctemp * (9 / 5) ) + 32);
+        return Ftemp;
     }
 
     public boolean getRain()
@@ -73,6 +79,7 @@ public class WeatherObject {
     {
         return String.valueOf(current.weather);
     }
+
 
 
 }

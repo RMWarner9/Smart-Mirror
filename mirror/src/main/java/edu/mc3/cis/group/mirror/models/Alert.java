@@ -11,4 +11,16 @@ public class Alert {
     public String description;
     public List<String> tags;
 
+    @Override
+    public String toString()
+    {
+        return "Alert{" +
+                "sender_name='" + sender_name + '\'' +
+                ", event='" + event + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", description='" + description + '\'' +
+                ", tags=" + tags +
+                '}';
+    }
 }
