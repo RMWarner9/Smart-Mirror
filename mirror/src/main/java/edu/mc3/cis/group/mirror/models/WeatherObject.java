@@ -1,6 +1,9 @@
 package edu.mc3.cis.group.mirror.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.*;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherObject {
     public double lat;
     public double lon;
@@ -10,18 +13,20 @@ public class WeatherObject {
     public List<Minutely> minutely;
     public List<Hourly> hourly;
     public List<Daily> daily;
+    public List<Alert> alerts;
 
     @Override
     public String toString() {
         return "WeatherObject{" +
-                "lat=" + lat +
-                ", lon=" + lon +
-                ", timezone='" + timezone + '\'' +
-                ", timezone_offset=" + timezone_offset +
-                ", current=" + current +
-                ", minutely=" + minutely +
-                ", hourly=" + hourly +
-                ", daily=" + daily +
+                "\nlat=" + lat +
+                "\n, lon=" + lon +
+                "\n, timezone='" + timezone + '\'' +
+                "\n, timezone_offset=" + timezone_offset +
+                "\n, current=" + current +
+                "\n, minutely=" + minutely +
+                "\n, hourly=" + hourly +
+                "\n, daily=" + daily +
+                "\n, alerts= \n" + alerts +
                 '}';
     }
 

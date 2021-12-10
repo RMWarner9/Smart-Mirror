@@ -5,5 +5,15 @@ public class Weather{
     public String main;
     public String description;
     public String icon;
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "\nid=" + id +
+                "\n, main='" + main + '\'' +
+                "\n, description='" + description + '\'' +
+                "\n, icon='" + icon + '\'' +
+                '}';
+    }
 }
 

@@ -16,9 +16,11 @@ public class Current {
     public double wind_speed;
     public int wind_deg;
     public double wind_gust;
+    public Rain rain;
+    public Snow snow;
     public List<Weather> weather;
     
-    /*constructor
+    //constructor
     public Current(){
     this.dt = dt;
     this.sunrise = sunrise;
@@ -34,10 +36,10 @@ public class Current {
     this.wind_speed = wind_speed;
     this.wind_deg = wind_deg;
     this.wind_gust = wind_gust;
-    this.weather = weather; */
+    this.weather = weather;
     
     }
-    /*
+    
     public double getTemp()
     {
       return temp;
@@ -51,6 +53,33 @@ public class Current {
     public List<Weather> getWeather()
     {
       return weather;
-    }*/
+    }
+    @Override
+    public String toString() {
+        return "Current{" +
+                "\ndt=" + dt +
+                "\n, sunrise=" + sunrise +
+                "\n, sunset=" + sunset +
+                "\n, temp=" + temp +
+                "\n, feels_like=" + feels_like +
+                "\n, pressure=" + pressure +
+                "\n, humidity=" + humidity +
+                "\n, dew_point=" + dew_point +
+                "\n, uvi=" + uvi +
+                "\n, clouds=" + clouds +
+                "\n, visibility=" + visibility +
+                "\n, wind_speed=" + wind_speed +
+                "\n, wind_deg=" + wind_deg +
+                "\n, wind_gust=" + wind_gust +
+                "\n, rain=" + rain +
+                "\n, snow=" + snow +
+                "\n, weather=" + weather +
+                '}';
+        }
+
+    }
+
+
+
 
 
