@@ -18,7 +18,7 @@ public class Current {
     public double wind_gust;
     public List<Weather> weather;
     
-    //constructor
+    /*constructor
     public Current(){
     this.dt = dt;
     this.sunrise = sunrise;
@@ -34,10 +34,10 @@ public class Current {
     this.wind_speed = wind_speed;
     this.wind_deg = wind_deg;
     this.wind_gust = wind_gust;
-    this.weather = weather;
+    this.weather = weather; */
     
     }
-    
+    /*
     public double getTemp()
     {
       return temp;
@@ -51,6 +51,6 @@ public class Current {
     public List<Weather> getWeather()
     {
       return weather;
-    }
-}
+    }*/
+
 

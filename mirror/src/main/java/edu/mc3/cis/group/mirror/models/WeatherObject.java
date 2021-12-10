@@ -24,5 +24,51 @@ public class WeatherObject {
                 ", daily=" + daily +
                 '}';
     }
+
+
+    public double getCurrentTemp()
+    {
+        return current.temp;
+    }
+
+    public boolean getRain()
+    {
+        boolean rain = false;
+        String weather = String.valueOf((current.weather));
+        if(weather.contains("rain") || weather.contains("Rain") || weather.contains("raining") || weather.contains("Raining"))
+        {
+            rain = true;
+        }
+        else
+        {
+            rain = false;
+        }
+
+        return rain;
+
+    }
+
+    public boolean getSnow()
+    {
+        boolean snow = false;
+        String weather = String.valueOf((current.weather));
+        if(weather.contains("snow") || weather.contains("Snow") || weather.contains("snowing") || weather.contains("Snowing"))
+        {
+            snow = true;
+        }
+        else
+        {
+            snow = false;
+        }
+
+        return snow;
+    }
+
+    public String getWeather()
+    {
+        return String.valueOf(current.weather);
+    }
+
+
 }
 
