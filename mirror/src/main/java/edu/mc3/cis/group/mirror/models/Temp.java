@@ -7,5 +7,13 @@ public class Temp{
     public double night;
     public double eve;
     public double morn;
+
+    public double getMin() {
+        return min;
+    }
+
+    public double getMax() {
+        return max;
+    }
 }
 

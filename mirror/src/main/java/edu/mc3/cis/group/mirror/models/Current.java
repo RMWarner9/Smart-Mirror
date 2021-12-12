@@ -1,6 +1,7 @@
 package edu.mc3.cis.group.mirror.models;
 
 import java.util.*;
+
 public class Current {
     public int dt;
     public int sunrise;
@@ -50,10 +51,11 @@ public class Current {
       return humidity;
     }
     
-    public List<Weather> getWeather()
+    public Weather getWeather()
     {
-      return weather;
+      return weather.get(0);
     }
+
     @Override
     public String toString() {
         return "Current{" +

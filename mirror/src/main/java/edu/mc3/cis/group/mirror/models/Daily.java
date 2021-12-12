@@ -1,6 +1,8 @@
 package edu.mc3.cis.group.mirror.models;
 
 import java.util.*;
+
+
 public class Daily {
     public int dt;
     public int sunrise;
@@ -22,5 +24,22 @@ public class Daily {
     public double rain;
     public double uvi;
     public double snow;
+
+
+    public double getRainProbability()
+    {
+        return rain;
+    }
+
+    public double getSnowProbability()
+    {
+        return snow;
+    }
+
+    public Temp getTemp() {
+        return temp;
+    }
 }
+
+
 

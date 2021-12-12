@@ -1,6 +1,7 @@
 package edu.mc3.cis.group.mirror.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -30,17 +31,6 @@ public class WeatherObject {
                 '}';
     }
 
-
-    public double getCurrentTemp()
-    {
-        double Ftemp;
-        double Ctemp;
-        double Ktemp;
-        Ktemp = current.temp;
-        Ctemp = Ktemp + 273.15;
-        Ftemp = ( (Ctemp * (9 / 5) ) + 32);
-        return Ftemp;
-    }
 
     public boolean getRain()
     {
@@ -80,7 +70,12 @@ public class WeatherObject {
         return String.valueOf(current.weather);
     }
 
+    public List<Daily> getDaily() {
+        return daily;
+    }
 
-
+    public Current getCurrent()
+    {
+        return current;
+    }
 }
-

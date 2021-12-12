@@ -6,8 +6,6 @@ import edu.mc3.cis.group.mirror.models.ExampleResult;
 import edu.mc3.cis.group.mirror.models.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +39,6 @@ public class NewsService {
 
             System.out.println(news);
             return news;
-
 
         }catch (Exception e)
         {

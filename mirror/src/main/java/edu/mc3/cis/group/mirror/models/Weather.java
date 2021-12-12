@@ -6,6 +6,10 @@ public class Weather{
     public String description;
     public String icon;
 
+    public String getMain(){
+        return main;
+    }
+
     @Override
     public String toString() {
         return "Weather{" +
