@@ -28,7 +28,7 @@ public class WeatherService {
       //use jackson to map JSON string to JAVA objects
       ObjectMapper weatherObjectMapper = new ObjectMapper();
       double latitude = 40.21;
-      double longitude = 75.37;
+      double longitude = -75.37;
       String weatherURL = String.format("https://api.openweathermap.org/data/2.5/onecall?lat=%d&lon=%d&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c", latitude, longitude);
 
       weather = weatherObjectMapper.readValue(new URL (weatherURL), WeatherObject.class);
