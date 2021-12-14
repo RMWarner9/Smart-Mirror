@@ -1,9 +1,11 @@
 package edu.mc3.cis.group.mirror.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper; // version 2.11.1
+import edu.mc3.cis.group.mirror.exceptions.MagicMirrorException;
 import edu.mc3.cis.group.mirror.models.Daily;
 import edu.mc3.cis.group.mirror.models.Weather;
 import edu.mc3.cis.group.mirror.models.WeatherObject;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -15,11 +17,16 @@ public class WeatherService {
 
    private final WeatherObject weather;
 
-   public WeatherService() throws IOException {
+   public WeatherService() {
 
       //use jackson to map JSON string to JAVA objects
-      ObjectMapper weatherObjectMapper = new ObjectMapper();
-      weather = weatherObjectMapper.readValue(new URL ("https://api.openweathermap.org/data/2.5/onecall?lat=40.21&lon=-75.37&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c"), WeatherObject.class);
+      try {
+         ObjectMapper weatherObjectMapper = new ObjectMapper();
+         weather = weatherObjectMapper.readValue(new URL("https://api.openweathermap.org/data/2.5/onecall?lat=40.21&lon=-75.37&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c"), WeatherObject.class);
+      }catch (IOException exception)
+      {
+         throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(), "Object mapping of WeatherObject failed");
+      }
    }
 
 
@@ -27,13 +34,12 @@ public class WeatherService {
 
       return weather;
 
-
    }//end getWeather method
 
 
    public List<Daily> getDailyForecast()
    {
-     return weather.getDaily();
+      return weather.getDaily();
    }
 
    public Daily getTodaysForecast()
@@ -66,13 +72,18 @@ public class WeatherService {
 
    private double tempConverter(double temp)
    {
-      double Ftemp;
-      double Ctemp;
-      double Ktemp;
-      Ktemp = temp;
-      Ctemp = Ktemp - 273.15;
-      Ftemp = ( (Ctemp * (1.8) ) + 32);
-      return Ftemp;
+      try {
+         double Ftemp;
+         double Ctemp;
+         double Ktemp;
+         Ktemp = temp;
+         Ctemp = Ktemp - 273.15;
+         Ftemp = ((Ctemp * (1.8)) + 32);
+         return Ftemp;
+      }catch (ArithmeticException exception)
+      {
+         throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(), "Error converting Temps");
+      }
    }
 
 }//end class

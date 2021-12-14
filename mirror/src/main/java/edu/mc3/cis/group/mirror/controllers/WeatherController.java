@@ -1,8 +1,10 @@
 package edu.mc3.cis.group.mirror.controllers;
 
+import edu.mc3.cis.group.mirror.exceptions.MagicMirrorException;
 import edu.mc3.cis.group.mirror.models.*;
 import edu.mc3.cis.group.mirror.services.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,9 +20,12 @@ public class WeatherController{
     private WeatherService service;
 
     @GetMapping(path = "/currentWeather", produces = "application/json")
-    public WeatherObject getWeather() throws IOException {
-
-        return service.getWeather();
+    public WeatherObject getWeather(){
+        if(service.getWeather() == null)
+        {
+            throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(), "Cannot retrieve weather");
+        }
+            return service.getWeather();
     }
 
     @GetMapping(path = "/dailyForecast", produces = "application/json")

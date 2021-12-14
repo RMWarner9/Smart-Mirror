@@ -2,9 +2,11 @@ package edu.mc3.cis.group.mirror.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.mc3.cis.group.mirror.configs.NewsConfig;
+import edu.mc3.cis.group.mirror.exceptions.MagicMirrorException;
 import edu.mc3.cis.group.mirror.models.ExampleResult;
 import edu.mc3.cis.group.mirror.models.News;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -42,10 +44,9 @@ public class NewsService {
 
         }catch (Exception e)
         {
-            System.out.println(e.getMessage());
+            throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(),"News Object not properly mapped");
         }
 
-        return news;
     }
 
 }

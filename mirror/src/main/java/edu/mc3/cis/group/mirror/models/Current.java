@@ -1,25 +1,44 @@
 package edu.mc3.cis.group.mirror.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.*;
 
 public class Current {
-    public int dt;
-    public int sunrise;
-    public int sunset;
-    public double temp;
-    public double feels_like;
-    public int pressure;
-    public int humidity;
-    public double dew_point;
-    public double uvi;
-    public int clouds;
-    public int visibility;
-    public double wind_speed;
-    public int wind_deg;
-    public double wind_gust;
-    public Rain rain;
-    public Snow snow;
-    public List<Weather> weather;
+    @JsonProperty("dt")
+    private int dt;
+    @JsonProperty("sunrise")
+    private int sunrise;
+    @JsonProperty("sunset")
+    private int sunset;
+    @JsonProperty("temp")
+    private double temp;
+    @JsonProperty("feels_like")
+    private double feels_like;
+    @JsonProperty("pressure")
+    private int pressure;
+    @JsonProperty("humidity")
+    private int humidity;
+    @JsonProperty("dew_point")
+    private double dew_point;
+    @JsonProperty("uvi")
+    private double uvi;
+    @JsonProperty("clouds")
+    private int clouds;
+    @JsonProperty("visibility")
+    private int visibility;
+    @JsonProperty("wind_speed")
+    private double wind_speed;
+    @JsonProperty("wind_deg")
+    private int wind_deg;
+    @JsonProperty("wind_gust")
+    private double wind_gust;
+    @JsonProperty("rain")
+    private Rain rain;
+    @JsonProperty("snow")
+    private Snow snow;
+    @JsonProperty("weather")
+    private List<Weather> weather;
     
     //constructor
     public Current(){

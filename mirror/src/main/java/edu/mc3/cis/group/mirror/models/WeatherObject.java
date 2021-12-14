@@ -6,15 +6,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherObject {
-    public double lat;
-    public double lon;
-    public String timezone;
-    public int timezone_offset;
-    public Current current;
-    public List<Minutely> minutely;
-    public List<Hourly> hourly;
-    public List<Daily> daily;
-    public List<Alert> alerts;
+    @JsonProperty("lat")
+    private double lat;
+    @JsonProperty("lon")
+    private double lon;
+    @JsonProperty("timezone")
+    private String timezone;
+    @JsonProperty("timezone_offset")
+    private int timezone_offset;
+    @JsonProperty("current")
+    private Current current;
+    @JsonProperty("minutely")
+    private List<Minutely> minutely;
+    @JsonProperty("hourly")
+    private List<Hourly> hourly;
+    @JsonProperty("daily")
+    private List<Daily> daily;
+    @JsonProperty("alerts")
+    private List<Alert> alerts;
 
     @Override
     public String toString() {
@@ -35,7 +44,7 @@ public class WeatherObject {
     public boolean getRain()
     {
         boolean rain = false;
-        String weather = String.valueOf((current.weather));
+        String weather = String.valueOf((current.getWeather()));
         if(weather.contains("rain") || weather.contains("Rain") || weather.contains("raining") || weather.contains("Raining"))
         {
             rain = true;
@@ -52,7 +61,7 @@ public class WeatherObject {
     public boolean getSnow()
     {
         boolean snow = false;
-        String weather = String.valueOf((current.weather));
+        String weather = String.valueOf((current.getWeather()));
         if(weather.contains("snow") || weather.contains("Snow") || weather.contains("snowing") || weather.contains("Snowing"))
         {
             snow = true;
@@ -67,7 +76,7 @@ public class WeatherObject {
 
     public String getWeather()
     {
-        return String.valueOf(current.weather);
+        return String.valueOf(current.getWeather());
     }
 
     public List<Daily> getDaily() {

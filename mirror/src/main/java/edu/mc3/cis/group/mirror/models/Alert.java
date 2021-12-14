@@ -1,15 +1,23 @@
 package edu.mc3.cis.group.mirror.models;
-import java.util.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Alert {
 
-    public String sender_name;
-    public String event;
-    public int start;
-    public int end;
-    public String description;
-    public List<String> tags;
+    @JsonProperty("sender_name")
+    private String sender_name;
+    @JsonProperty("event")
+    private String event;
+    @JsonProperty("start")
+    private int start;
+    @JsonProperty("end")
+    private int end;
+    @JsonProperty("description")
+    private String description;
+    @JsonProperty("tags")
+    private List<String> tags;
 
     @Override
     public String toString()
