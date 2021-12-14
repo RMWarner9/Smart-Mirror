@@ -17,16 +17,24 @@ public class WeatherService {
 
    private final WeatherObject weather;
 
-   public WeatherService() {
+
+   /**
+    * Constructor of the WeatherService class. Latitiude and longitude values
+    * are passed into a string format method that contains the URL of a specific data
+    * relating to a location within the OpenWeatherAPI.
+    * Essentially, it is a one call API that loads up data of a specific
+    * location based off its set longitidue and latitude values
+    * @throws IOException - Error that occurs as a result of input/output operations
+    */
+   public WeatherService() throws IOException {
 
       //use jackson to map JSON string to JAVA objects
-      try {
-         ObjectMapper weatherObjectMapper = new ObjectMapper();
-         weather = weatherObjectMapper.readValue(new URL("https://api.openweathermap.org/data/2.5/onecall?lat=40.21&lon=-75.37&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c"), WeatherObject.class);
-      }catch (IOException exception)
-      {
-         throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(), "Object mapping of WeatherObject failed");
-      }
+      ObjectMapper weatherObjectMapper = new ObjectMapper();
+      double latitude = 40.21;
+      double longitude = -75.37;
+      String weatherURL = String.format("https://api.openweathermap.org/data/2.5/onecall?lat=%d&lon=%d&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c", latitude, longitude);
+
+      weather = weatherObjectMapper.readValue(new URL (weatherURL), WeatherObject.class);
    }
 
 
