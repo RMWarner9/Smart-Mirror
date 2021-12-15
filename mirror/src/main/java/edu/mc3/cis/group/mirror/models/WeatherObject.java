@@ -1,15 +1,21 @@
+
 package edu.mc3.cis.group.mirror.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.*;
+
+/**
+ * WeatherObject is a class that holds the values that are returned from the openweathermap api.
+ * It holds, various values such as the location and timezone information, the current weather, weather by the minute,
+ * hour, and daily, as well as any alerts that may be passed
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WeatherObject {
     @JsonProperty("lat")
-    private double lat;
+    private double latitude;
     @JsonProperty("lon")
-    private double lon;
+    private double longitude;
     @JsonProperty("timezone")
     private String timezone;
     @JsonProperty("timezone_offset")
@@ -25,11 +31,15 @@ public class WeatherObject {
     @JsonProperty("alerts")
     private List<Alert> alerts;
 
+    /**
+     * toString method to return a formatted version of the WeatherObject to the terminal
+     * @return String representation of WeatherObject
+     */
     @Override
     public String toString() {
         return "WeatherObject{" +
-                "\nlat=" + lat +
-                "\n, lon=" + lon +
+                "\nlat=" + latitude +
+                "\n, lon=" + longitude +
                 "\n, timezone='" + timezone + '\'' +
                 "\n, timezone_offset=" + timezone_offset +
                 "\n, current=" + current +
@@ -41,10 +51,15 @@ public class WeatherObject {
     }
 
 
+    /**
+     * getRain method returns a boolean value if the current weather has a rain probability by checking the main field
+     * of the Weather object.
+     * @return boolean True if rain is present, False if not.
+     */
     public boolean getRain()
     {
         boolean rain = false;
-        String weather = String.valueOf((current.getWeather()));
+        String weather = String.valueOf((current.getWeather().getMain()));
         if(weather.contains("rain") || weather.contains("Rain") || weather.contains("raining") || weather.contains("Raining"))
         {
             rain = true;
@@ -58,10 +73,15 @@ public class WeatherObject {
 
     }
 
+    /**
+     * getSnow method returns a boolean if the current weather has a snow probability by checking the Weather objects main
+     * field value
+     * @return returns true if snow is present, false otherwise.
+     */
     public boolean getSnow()
     {
         boolean snow = false;
-        String weather = String.valueOf((current.getWeather()));
+        String weather = String.valueOf((current.getWeather().getMain()));
         if(weather.contains("snow") || weather.contains("Snow") || weather.contains("snowing") || weather.contains("Snowing"))
         {
             snow = true;
@@ -74,17 +94,22 @@ public class WeatherObject {
         return snow;
     }
 
-    public String getWeather()
-    {
-        return String.valueOf(current.getWeather());
-    }
-
+    /**
+     * getDaily returns the daily weather report for a 10 day forecast.
+     * @return List of Daily objects holding the 10 day forecast
+     */
     public List<Daily> getDaily() {
         return daily;
     }
 
+    /**
+     * getCurrent method returns the current weather using the Current object
+     * @return
+     */
     public Current getCurrent()
     {
         return current;
     }
+
+
 }

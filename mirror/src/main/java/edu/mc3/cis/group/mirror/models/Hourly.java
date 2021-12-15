@@ -1,8 +1,10 @@
 package edu.mc3.cis.group.mirror.models;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.*;
+
+/**
+ * Hourly class is a representation of the hourly forecast that is given by the openweathermap api
+ */
 public class Hourly {
     @JsonProperty("dt")
     private int dt;

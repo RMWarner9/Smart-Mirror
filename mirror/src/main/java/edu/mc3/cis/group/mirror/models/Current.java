@@ -1,9 +1,10 @@
 package edu.mc3.cis.group.mirror.models;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.*;
 
+/**
+ * Current class represents the current weather.
+ */
 public class Current {
     @JsonProperty("dt")
     private int dt;
@@ -39,42 +40,41 @@ public class Current {
     private Snow snow;
     @JsonProperty("weather")
     private List<Weather> weather;
-    
-    //constructor
-    public Current(){
-    this.dt = dt;
-    this.sunrise = sunrise;
-    this.sunset = sunset;
-    this.temp = temp;
-    this.feels_like = feels_like;
-    this.pressure = pressure;
-    this.humidity = humidity;
-    this.dew_point = dew_point;
-    this.uvi = uvi;
-    this.clouds = clouds;
-    this.visibility = visibility;
-    this.wind_speed = wind_speed;
-    this.wind_deg = wind_deg;
-    this.wind_gust = wind_gust;
-    this.weather = weather;
-    
-    }
-    
+
+
+    /**
+     * getTemp method returns the current temperature in Kelvin
+     * @return double
+     */
     public double getTemp()
     {
       return temp;
     }
-    
+
+    /**
+     * getHumidity returns the current humidity
+     * @return
+     */
     public int getHumidity()
     {
       return humidity;
     }
-    
+
+    /**
+     * getWeather returns the first weather object of the Weather List
+     * It holds values such as main (Clouds, Rain, Sunny, etc) and a description
+     * @return Weather
+     */
     public Weather getWeather()
     {
       return weather.get(0);
     }
 
+
+    /**
+     * toString method to return a formatted version of the Current object
+     * @return
+     */
     @Override
     public String toString() {
         return "Current{" +

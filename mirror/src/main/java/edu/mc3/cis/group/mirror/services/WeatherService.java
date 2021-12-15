@@ -24,7 +24,7 @@ public class WeatherService {
     * relating to a location within the OpenWeatherAPI.
     * Essentially, it is a one call API that loads up data of a specific
     * location based off its set longitidue and latitude values
-    * @throws IOException - Error that occurs as a result of input/output operations
+    * @throws IOException - Exception thrown if the objects values are unable to be mapped
     */
    public WeatherService() throws IOException {
 
@@ -32,9 +32,17 @@ public class WeatherService {
       ObjectMapper weatherObjectMapper = new ObjectMapper();
       double latitude = 40.21;
       double longitude = -75.37;
-      String weatherURL = String.format("https://api.openweathermap.org/data/2.5/onecall?lat=%d&lon=%d&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c", latitude, longitude);
+      String weatherURL = String.format("https://api.openweathermap.org/data/2.5/onecall?lat=%f&lon=%f&exclude=&appid=27dc2479f6b8403454c5de1d81d9931c", latitude, longitude);
 
-      weather = weatherObjectMapper.readValue(new URL (weatherURL), WeatherObject.class);
+      if(weatherObjectMapper.canDeserialize(weatherObjectMapper.constructType(WeatherObject.class))) {
+         weather = weatherObjectMapper.readValue(new URL(weatherURL), WeatherObject.class);
+      }
+      else{
+         throw new MagicMirrorException(HttpStatus.INTERNAL_SERVER_ERROR, new Throwable().getCause(),
+                 "Unable to map Weather Object" +
+                 "Please check the URL being passed.");
+      }
+
    }
 
 
@@ -74,7 +82,7 @@ public class WeatherService {
 
    public double getSnowForecast()
    {
-      return weather.getDaily().get(0).getRainProbability();
+      return weather.getDaily().get(0).getSnowProbability();
    }
 
 

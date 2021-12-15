@@ -1,8 +1,14 @@
 package edu.mc3.cis.group.mirror.models;
 
-public class MorningGreetings extends Greetings {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * MorningGreetings is a class that chooses a greeting to be returned
+ */
+public class MorningGreetings implements Greetings {
 
     String[] greetingText = new String[12];
+    @JsonProperty("greeting")
     private String greeting;
 
     public MorningGreetings() {
@@ -18,13 +24,22 @@ public class MorningGreetings extends Greetings {
         greetingText[9] = "Welcome!";
         greetingText[10] = "How do you like your coffee?";
         greetingText[11] = "Did you sleep well?";
+
+        chooseGreeting();
     }
 
-    public void chooseGreeting() {
+    /**
+     * chooseGreeting() chooses a Greeting to be returned
+     */
+    private void chooseGreeting() {
         int random = (int)(Math.random() * greetingText.length);
         greeting = greetingText[random];
     }
 
+    /**
+     * getGreeting returns the value of the greeting chosen
+     * @return String chosen greeting
+     */
     public String getGreeting() {
         chooseGreeting();
         return greeting;
