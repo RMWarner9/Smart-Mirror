@@ -52,6 +52,10 @@ public class WeatherService {
 
    }//end getWeather method
 
+   public String getMainForecast()
+   {
+      return weather.getCurrent().getWeather().getMain();
+   }
 
    public List<Daily> getDailyForecast()
    {
