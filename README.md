@@ -17,3 +17,8 @@ This project allows the API to be imported and can be used with any OS, or front
 ## mirror
 
 Java backend using [spring](https://spring.io/)
+
+## Future Updates/Ideas
+
+* Create a database for clothing service based on temperature instead of in code
+* Commute time
