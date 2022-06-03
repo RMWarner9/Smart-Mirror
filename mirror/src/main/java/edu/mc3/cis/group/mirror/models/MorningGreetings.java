@@ -31,7 +31,7 @@ public class MorningGreetings implements Greetings {
     /**
      * chooseGreeting() chooses a Greeting to be returned
      */
-    private void chooseGreeting() {
+    public void chooseGreeting() {
         int random = (int)(Math.random() * greetingText.length);
         greeting = greetingText[random];
     }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * GreetingsController is a controller that uses REST services in order to return a Greeting object
  */
@@ -23,7 +25,7 @@ public class GreetingsController {
      * @return Greeting
      */
     @GetMapping(path = "/getGreetings", produces = "application/json")
-    public Greetings getGreetings(){
+    public Greetings getGreetings() throws IOException {
 
         return service.getGreeting();
     }
