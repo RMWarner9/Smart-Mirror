@@ -4,8 +4,8 @@ CIS 111B Final Group Project
 
 ## Background
 
-The Smart Mirror API project was a project created for CIS111B final project. 
-This project allows the API to be imported and can be used with any OS, or front-end design.
+The Smart Mirror API project is a project that creates an API that can be used for a Smart Mirror.
+It is a REST API returning JSON responses of Weather, Clothing, and News
 
 
 ## modules
